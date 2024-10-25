@@ -60,7 +60,7 @@ void chica_processing(Player *player, BonChi *chica) {
 					chica->position = POS_4A;
 				} else {
 					player->isRightDoorDisabled = true;
-					chica->prepareForJumpscare;
+					chica->prepareForJumpscare = true;
 					chica->timer = 0.f;
 				}
 				break;

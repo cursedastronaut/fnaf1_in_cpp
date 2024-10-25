@@ -70,7 +70,7 @@ void bonnie_processing(Player *player, BonChi *bonnie) {
 
 				} else {
 					player->isLeftDoorDisabled = true;
-					bonnie->prepareForJumpscare;
+					bonnie->prepareForJumpscare = true;
 					bonnie->timer = 0.f;
 				}
 				break;
