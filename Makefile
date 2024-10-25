@@ -20,6 +20,10 @@ IMGUI_DIR = $(INC_DIR)/imgui
 SOURCES = main.cpp
 OBJ_DIR = .objects
 SRC_DIR = src
+SRCGAME_DIR = src/game
+SOURCES_GAME = $(SRCGAME_DIR)/bonnie.c $(SRCGAME_DIR)/chica.c $(SRCGAME_DIR)/foxy.c $(SRCGAME_DIR)/freddy.c $(SRCGAME_DIR)/game.c $(SRCGAME_DIR)/player.c $(SRCGAME_DIR)/constants.c
+OBJS_SRCGAME = $(addprefix $(SRCGAME_DIR)/, $(addsuffix .o, $(basename $(notdir $(SOURCES_GAME)))))
+
 SOURCES_IMGUI += $(IMGUI_DIR)/imgui.cpp $(IMGUI_DIR)/imgui_demo.cpp $(IMGUI_DIR)/imgui_draw.cpp $(IMGUI_DIR)/imgui_tables.cpp $(IMGUI_DIR)/imgui_widgets.cpp
 SOURCES_IMGUI_B += $(IMGUI_DIR)_backends/imgui_impl_glfw.cpp $(IMGUI_DIR)_backends/imgui_impl_opengl3.cpp
 OBJS_IMGUI = $(addprefix $(IMGUI_DIR)/, $(addsuffix .o, $(basename $(notdir $(SOURCES_IMGUI)))))
@@ -30,12 +34,14 @@ OBJS_SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .o, $(basename $(notdir $(SOURCE
 OBJS = $(OBJS_SRC)
 OBJS += $(OBJS_IMGUI)
 OBJS += $(OBJS_IMGUI_BACKEND)
+OBJS += $(OBJS_SRCGAME)
 
 UNAME_S := $(shell uname -s)
 LINUX_GL_LIBS = -lGL
 
 CXXFLAGS = -std=c++11 -I$(IMGUI_DIR) -I$(IMGUI_DIR)_backends
-CXXFLAGS += -g -Wall -Wformat
+CCFLAGS = -g -Wall -Wformat
+CXXFLAGS += $(CCFLAGS)
 LIBS =
 
 ##---------------------------------------------------------------------
@@ -81,6 +87,8 @@ endif
 ## BUILD RULES
 ##---------------------------------------------------------------------
 
+$(OBJ_DIR)/$(SRCGAME_DIR)%.o:$(SRCGAME_DIR)/%.c
+	$(CC) $(CCFLAGS) -c -o $@ $<
 $(OBJ_DIR)/$(SRC_DIR)%.o:$(SRC_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
@@ -97,4 +105,4 @@ $(EXE): $(addprefix $(OBJ_DIR)/, $(OBJS))
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean:
-	rm -f $(EXE) $(OBJS)
+	rm -f $(EXE) $(addprefix $(OBJ_DIR)/, $(OBJS))
