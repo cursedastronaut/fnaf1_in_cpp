@@ -62,6 +62,7 @@ void bonnie_processing(Player *player, BonChi *bonnie) {
 				} else {
 					bonnie->position = POS_OFFICE;
 				}
+				break;
 
 			case POS_OFFICE:
 				if (player->isLeftDoorClosed) {
@@ -70,8 +71,9 @@ void bonnie_processing(Player *player, BonChi *bonnie) {
 				} else {
 					player->isLeftDoorDisabled = true;
 					bonnie->prepareForJumpscare;
-					bonnie->timer = false;
+					bonnie->timer = 0.f;
 				}
+				break;
 
 			default:
 				break;
