@@ -5,21 +5,6 @@
 #define max(x,y) (((x) >= (y)) ? (x) : (y))
 #define min(x,y) (((x) <= (y)) ? (x) : (y))
 
-int randB(unsigned int min, unsigned int max);
-
-void freddy_processing(Player *player, Freddy *freddy);
-void bonnie_processing(Player *player, BonChi *bonnie);
-void chica_processing(Player *player, BonChi *chica);
-void foxy_processing(Player *player, Foxy *foxy);
-void player_processing(Player *player);
-
-void freddy_init(Freddy *freddy, int ai);
-void foxy_init(Foxy *foxy, int ai);
-void bonnie_init(BonChi *bonnie, int ai);
-void player_init(Player *ai, int night);
-
-void freddy_blackout_sequence(Player *player, Freddy *freddy);
-
 typedef struct Player {
 	bool isCameraUp;
 	bool wasCameraUp;
@@ -79,3 +64,20 @@ typedef struct BonChi {
 	bool prepareForJumpscare;
 
 } BonChi;
+
+int randB(unsigned int min, unsigned int max);
+
+void freddy_processing(Player *player, Freddy *freddy);
+void bonnie_processing(Player *player, BonChi *bonnie);
+void chica_processing(Player *player, BonChi *chica);
+void foxy_processing(Player *player, Foxy *foxy);
+void player_processing(Player *player);
+
+void freddy_init(Freddy *freddy, int ai);
+void foxy_init(Foxy *foxy, int ai);
+void bonnie_init(BonChi *bonnie, int ai);
+void player_init(Player *ai, int night);
+
+void freddy_blackout_sequence(Player *player, Freddy *freddy);
+
+
