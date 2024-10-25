@@ -4,3 +4,9 @@
 
 #Resources
 /resources
+
+#Compilation stuff or executables
+/.objects
+**.o
+fnaf_in_cpp
+imgui.ini
