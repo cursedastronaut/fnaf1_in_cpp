@@ -1,5 +1,7 @@
+#include "constants.h"
 #include "animatronics.h"
 void Update(Player *player, Freddy *freddy, Foxy *foxy, BonChi *bonnie, BonChi *chica) {
+	if (player->deltaTime < RUNNING_TPS) return;
 	freddy_processing(&player, &freddy);
 	bonnie_processing(&player, &bonnie);
 	foxy_processing(&player, &foxy);

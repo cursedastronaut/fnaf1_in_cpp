@@ -1,4 +1,5 @@
 #pragma once
+const float RUNNING_TPS = 30.f;
 const int ANIMATRONIC_COUNT = 4;
 const int NIGHT_COUNT = 6;
 const int HOURS_COUNT = 6;
