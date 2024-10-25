@@ -1,1 +1,6 @@
+#IDEs/Text Editors
 /.vscode
+/.vs
+
+#Resources
+/resources
