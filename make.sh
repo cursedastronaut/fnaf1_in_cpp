@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Create the .objects/ directory if it doesn't already exist
+# Create the  directories if they don't already exist
 mkdir -p .objects
+mkdir -p resources
 
 # Function to replicate folder structure
 replicate_structure() {
