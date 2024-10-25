@@ -27,8 +27,8 @@ const int AI_INCREASE[HOURS_COUNT][ANIMATRONIC_COUNT] = {
 	{0,0,0,0}  //5AM
 };
 
-const int POWER_LOST_PER_SEC[NIGHT_COUNT] = {
-	5, 6, 4, 3, 3
+const int NUM_SEC_POWER_LOSS[NIGHT_COUNT] = {
+	5, 6, 4, 3, 3, 3
 };
 
 const int AI_MAX = 20;
