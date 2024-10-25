@@ -10,7 +10,7 @@ void freddy_processing(Player *player, Freddy *freddy) {
 		if (
 				!freddy->startCountDown &&
 				(randB(0, AI_MAX) >= AI_MAX - freddy->ai) &&
-				(freddy->position != POS_4B && !player->isCameraUp || freddy->position == POS_4B && player->lookingAt != POS_4B)
+				((freddy->position != POS_4B && !player->isCameraUp) || (freddy->position == POS_4B && player->lookingAt != POS_4B))
 			) {
 			freddy->startCountDown = true;
 			freddy->countDown = FREDDY_MOVEMENT_COUNTDOWN[0] - FREDDY_MOVEMENT_COUNTDOWN[1] * freddy->ai; 
@@ -19,7 +19,7 @@ void freddy_processing(Player *player, Freddy *freddy) {
 
 	if (freddy->startCountDown) {
 		if (freddy->countDown < 0) {
-			if (freddy->position != POS_4B && !player->isCameraUp || freddy->position == POS_4B && player->lookingAt != POS_4B)
+			if ((freddy->position != POS_4B && !player->isCameraUp) || (freddy->position == POS_4B && player->lookingAt != POS_4B))
 			{
 				freddy->canMove = true;
 				freddy->startCountDown = false;
