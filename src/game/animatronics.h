@@ -27,7 +27,7 @@ typedef struct Player {
 	bool isLeftDoorClosed;
 	bool isRightDoorClosed;
 	bool isLeftDoorDisabled;
-	bool isRightDoorDisablde;
+	bool isRightDoorDisabled;
 } Player;
 
 typedef struct Freddy
