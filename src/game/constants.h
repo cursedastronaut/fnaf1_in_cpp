@@ -93,3 +93,5 @@ const int FREDDY_BLACKOUT_JP_CHANCES[2] = {
 };
 
 const float BONCHI_FORCE_CAMERA_ATTACK_TIMER = 30.f;
+
+const float PLAYER_BATTERY_START = 100.f;

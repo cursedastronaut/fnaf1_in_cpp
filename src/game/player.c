@@ -20,7 +20,7 @@ void player_processing(Player *player) {
 	if (player->isRightLightOn)		++usage;
 	if (player->isLeftLightOn)		++usage;
 
-	player->battery -= NUM_SEC_POWER_LOSS[player->night > 7 ? 7 : player->night] * usage * player->deltaTime;
+	player->battery -= NUM_SEC_POWER_LOSS[player->night > 6 ? 6 : (player->night - 1)] * usage * player->deltaTime;
 	player->wasCameraUp = player->isCameraUp;
 }
 
@@ -47,4 +47,20 @@ void player_toggleLeftLight(Player *player) {
 void player_toggleRightLight(Player *player) {
 	if (player->isRightDoorDisabled)
 		player->isRightLightOn = !player->isRightLightOn;
+}
+
+void player_init(Player *player, int night) {
+	player->lookingAt			= POS_1A;
+	player->night				= 7;
+	player->deltaTime			= 0;
+	player->battery				= PLAYER_BATTERY_START;
+	player->isCameraUp			= false;
+	player->wasCameraUp			= false;
+	player->isLeftDoorClosed	= false;
+	player->isRightDoorClosed	= false;
+	player->isLeftDoorDisabled	= false;
+	player->isRightDoorDisabled	= false;
+	player->isLeftLightOn		= false;
+	player->isRightLightOn		= false;
+	player->isBlackoutPhase		= false;
 }
