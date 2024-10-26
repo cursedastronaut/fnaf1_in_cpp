@@ -33,5 +33,5 @@ const int FREDDY_BLACKOUT_JP_CHANCES[2] = {0, 5};
 const float BONCHI_FORCE_CAMERA_ATTACK_TIMER = 30.f;
 const float PLAYER_BATTERY_START = 100.f;
 
-const int AI_MAX;
-const int RUNNING_TPS;
+const int AI_MAX = 20;
+const int RUNNING_TPS = 30;

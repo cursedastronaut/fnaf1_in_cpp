@@ -18,7 +18,7 @@ void foxy_attack(Player *player, Foxy *foxy) {
 	if (!player->isLeftDoorClosed) {
 		foxy->shouldPerformJumpscare = true;
 	} else {
-		player->battery -= FOXY_BATTERY_STEAL[min(foxy->timesBlocked, 3)];
+		player->battery -= FOXY_BATTERY_STEAL[my_min(foxy->timesBlocked, 3)];
 		foxy->stage = randB(0, 2);
 	}
 }
