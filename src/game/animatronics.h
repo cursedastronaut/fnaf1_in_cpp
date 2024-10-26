@@ -1,9 +1,9 @@
 #pragma once
-#define bool short int
+//#define bool short int
 #include <stdlib.h>
 #include <stdbool.h>
-#define max(x,y) (((x) >= (y)) ? (x) : (y))
-#define min(x,y) (((x) <= (y)) ? (x) : (y))
+#define my_max(x,y) (((x) >= (y)) ? (x) : (y))
+#define my_min(x,y) (((x) <= (y)) ? (x) : (y))
 
 typedef struct Player {
 	bool isCameraUp;
