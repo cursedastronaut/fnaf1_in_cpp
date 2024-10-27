@@ -12,6 +12,7 @@ private:
 	BonChi	chica;
 
 	Displaying dis;
+	ImDrawList *dl;
 
 	int night;
 	bool isCustomNight = false;
@@ -20,6 +21,7 @@ private:
 
 	void mainMenu();
 	void inGame();
+	void loading();
 public:
 	Game(/* args */);
 	~Game();

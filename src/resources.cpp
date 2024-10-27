@@ -1,8 +1,7 @@
 #include "resources.hpp"
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
-#include <fstream>
-#include <iostream>
+
 bool Resources::LoadTextureFromMemory(const void* data, size_t data_size, GLuint* out_texture, int* out_width, int* out_height)
 {
 	// Load from file
@@ -108,7 +107,6 @@ std::vector<ImTexture>* Resources::getTextures() {
 }
 
 ImTexture *Resources::getTexture(size_t index) {
-	std::cout << index << " " << textures.size() << std::endl;
-	IM_ASSERT(index < textures.size());
+	if (index >= textures.size()) throw std::out_of_range("getTexture(size_t): No texture at specified index.");
 	return &textures[index];
 }

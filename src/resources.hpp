@@ -10,7 +10,8 @@
 #endif
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 //#define _CRT_SECURE_NO_WARNINGS
-
+#include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
